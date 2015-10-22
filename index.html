@@ -8,7 +8,11 @@
 <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
+  #map { position:absolute; top:0; bottom:0; width:80%; }
+  #cssmenu {position:absolute; top:0; bottom:0; right: 0; width:20%; background-color: #95B9B9;
+  -webkit-box-shadow: -4px 0px 5px 0px rgba(50, 50, 50, 0.4);
+-moz-box-shadow:    -4px 0px 5px 0px rgba(50, 50, 50, 0.4);
+box-shadow:         -4px 0px 5px 0px rgba(50, 50, 50, 0.4);}
 </style>
 </head>
 <body>
@@ -32,9 +36,98 @@
   }
   .popup .cycle a.prev { float:left; }
   .popup .cycle a.next { float:right; }
+  
+#cssmenu {
+  background: #333;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+}
+#cssmenu li {
+  font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#cssmenu a {
+  background: #333;
+  border-bottom: 1px solid #393939;
+  color: #ccc;
+  display: block;
+  margin: 0;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-weight: normal;
+}
+#cssmenu a:hover {
+  background: #6389AB url("images/hover.gif") left center no-repeat;
+  color: #fff;
+  padding-bottom: 8px;
+}
+  
+ul {
+padding-left:5px;
+}
+
+h1, h3 {
+font:"Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+color:#ccc;
+text-align:center;
+margin-top:2px;
+margin-bottom:3px;
+}
+
+#legend {
+position:absolute;
+left:5px;
+bottom:5px;
+border-radius:10px;
+background-color:#ffffff;
+width:120px;
+}
+
+#legend p {
+text-align:right;
+padding:5px;
+}
+
+#legend span {
+position:absolute;
+left:3px;
+bottom:29px;
+display:block;
+height:20px;
+width:20px;
+border-bottom:4px solid #B66B27;
+}
+ 
 </style>
 
 <div id='map'></div>
+
+<div id="legend">
+	<span></span><p>Hiking Route</p>
+</div>
+
+<div id='cssmenu'>
+	<h1>Fall 2015</h1>
+	<h3>New Hire Tour</h3>
+	<ul>
+		<li><a data-position='41.44723606714426, -81.71162277460098' zoom-level='17'>Zoo</a></li>
+		<li><a data-position='41.38968839401559, -81.69534713029861' zoom-level='17'>West Creek Watershed Stewardship Center</a></li>
+		<li><a data-position='41.412907898672835, -81.41539961099625' zoom-level='17'>Squaw Rock</a></li>
+		<li><a data-position='41.42349385001758, -81.42151236534119' zoom-level='17'>Look About Lodge</a></li>
+		<li><a data-position='41.501988788015815, -81.48945271968842' zoom-level='17'>Acacia Reservation</a></li>
+		<li><a data-position='41.56169875069485, -81.43587827682495' zoom-level='17'>North Chagrin Nature Center</a></li>
+		<li><a data-position='41.56235100314951, -81.43689215183258' zoom-level='17'>Nature Education Building</a></li>
+		<li><a data-position='41.58001149644672, -81.41924858093262' zoom-level='17'>Squires Castle</a></li>
+		<li><a data-position='41.45, -81.63' zoom-level='11'>Return</a></li>
+	</ul>
+</div>
+
+
+
 
 <!-- jQuery is required for this example. -->
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
@@ -51,7 +144,7 @@ var geoJson = [{
       "type": "Feature",
       "properties": {
         "title": "West Creek Watershed Stewardship Center",
-        "marker-color": "#7e7e7e",
+        "marker-color": "#648AAC",
         "marker-size": "medium",
         "marker-symbol": "park",
 		"images":[
@@ -69,7 +162,7 @@ var geoJson = [{
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#7e7e7e",
+        "marker-color": "#648AAC",
         "marker-size": "medium",
         "marker-symbol": "park",
         "title": "Squaw Rock",
@@ -96,12 +189,12 @@ var geoJson = [{
       "type": "Feature",
       "properties": {
         "title": "Look About Lodge",
-        "marker-color": "#7e7e7e",
+        "marker-color": "#648AAC",
         "marker-size": "medium",
         "marker-symbol": "park",
 		"images":[
           ['imgs/lal1.JPG','Naturalist Stefanie Verish discussing the history of Look About Lodge.'],
-          ['imgs/lal2.JPG','Bryan stops by for lunch and takes questions from the group.']
+          ['imgs/lal2.JPG','Brian stops by for lunch and takes questions from the group.']
         ]
       },
       "geometry": {
@@ -116,7 +209,7 @@ var geoJson = [{
       "type": "Feature",
       "properties": {
         "title": "Acacia Reservation",
-        "marker-color": "#7e7e7e",
+        "marker-color": "#648AAC",
         "marker-size": "medium",
         "marker-symbol": "park",
 		"images":[
@@ -138,7 +231,7 @@ var geoJson = [{
       "type": "Feature",
       "properties": {
         "title": "North Chagrin Nature Center",
-        "marker-color": "#7e7e7e",
+        "marker-color": "#648AAC",
         "marker-size": "medium",
         "marker-symbol": "park",
 		"images":[
@@ -158,7 +251,7 @@ var geoJson = [{
       "type": "Feature",
       "properties": {
         "title": "Nature Education Building",
-        "marker-color": "#7e7e7e",
+        "marker-color": "#648AAC",
         "marker-size": "medium",
         "marker-symbol": "park",
 		"images":[
@@ -178,7 +271,7 @@ var geoJson = [{
       "type": "Feature",
       "properties": {
         "title": "Squires Castle",
-        "marker-color": "#7e7e7e",
+        "marker-color": "#648AAC",
         "marker-size": "medium",
         "marker-symbol": "park",
 		"images": [
@@ -197,11 +290,13 @@ var geoJson = [{
     {
       "type": "Feature",
       "properties": {
-        "title": "Zoo",
-        "marker-color": "#7e7e7e",
+        "title": "Cleveland Metroparks Zoo",
+        "marker-color": "#648AAC",
         "marker-size": "medium",
         "marker-symbol": "park",
-        "images": "null"
+        "images":[ 
+		['imgs/zoo-logo.jpg','This is where the tour began and ended']
+		]
       },
       "geometry": {
         "type": "Point",
@@ -213,6 +308,13 @@ var geoJson = [{
     }
   ]
 }];
+
+  var layers = {
+      Outdoors: L.mapbox.tileLayer('mapbox.outdoors'),
+      Satellite: L.mapbox.tileLayer('mapbox.satellite')
+  };
+
+  L.control.layers(layers).addTo(map);
 
 
 
@@ -275,9 +377,194 @@ $('#map').on('click', '.popup .cycle a', function() {
     return false;
 });
 
-map.setView([41.3902, -81.6682], 11);
-</script>
 
+map.setView([41.45, -81.63], 11);
+
+
+// Zoom to lat/long on link click
+document.getElementById('cssmenu').onclick = function(e) {
+    var pos = e.target.getAttribute('data-position');
+	var zoom = e.target.getAttribute('zoom-level')
+    if (pos) {
+        var loc = pos.split(',');
+		}
+	if (zoom) {
+		var zlvl = zoom.split(',');
+		}
+    map.setView(loc, zlvl);
+}
+
+map.featureLayer.on('click', function(e) {
+        map.panTo(e.layer.getLatLng());
+    });
+
+</script>
+<script>
+
+var line_points = [
+[41.41676701081522, -81.41505060191112],
+[41.41678335031056, -81.41500019607186],
+[41.41679115805448, -81.41491802541998],
+[41.41674999255207, -81.41473548235284],
+[41.416756326460835, -81.41460867091804],
+[41.416745324505044, -81.41451222735807],
+[41.41670554761431, -81.41440440961199],
+[41.416688092925945, -81.4143570977168],
+[41.41663927659896, -81.4143070560282],
+[41.41659595111427, -81.41427858327633],
+[41.41654749749831, -81.41427031087073],
+[41.41652008010301, -81.41427352137559],
+[41.41646913741713, -81.41427948662287],
+[41.416420811431855, -81.4142851454531],
+[41.41639362023136, -81.41430695642592],
+[41.41635692525264, -81.41433639066355],
+[41.416319861643444, -81.41434424285471],
+[41.416292735218796, -81.41437850451037],
+[41.41623348139603, -81.41440765811522],
+[41.416150873263135, -81.41437930563218],
+[41.41611438823976, -81.41436678338995],
+[41.41607670511353, -81.41437287585447],
+[41.41601673402747, -81.4143825717369],
+[41.41594324123966, -81.41442777788153],
+[41.41590073142192, -81.414449622464],
+[41.41583958377539, -81.41445974904647],
+[41.4157301731168, -81.41450022904004],
+[41.415620762440646, -81.41454070889868],
+[41.41557956407145, -81.41455611444967],
+[41.41552496432261, -81.41458762539618],
+[41.415470364564335, -81.41461913629028],
+[41.41537885479911, -81.41466608319485],
+[41.41527151597376, -81.4147079654557],
+[41.41513485418817, -81.41476941801477],
+[41.41501049055582, -81.41480689463306],
+[41.41498568233476, -81.41481387109253],
+[41.41495851396508, -81.41484366972567],
+[41.41493083584442, -81.41487402742631],
+[41.4148981202595, -81.41487939750651],
+[41.41487380462259, -81.41488408542355],
+[41.41481878558149, -81.41487084103096],
+[41.41478215445707, -81.41486098891026],
+[41.4147273833919, -81.41487421911577],
+[41.41467063111201, -81.41487741677348],
+[41.414639199490495, -81.4148916092535],
+[41.41457243416328, -81.41492469738952],
+[41.41449046407598, -81.4149644579903],
+[41.41444596559633, -81.41497549730363],
+[41.41437186453628, -81.41497624223118],
+[41.414277553773886, -81.4149988759972],
+[41.41418855885439, -81.41502120305107],
+[41.41415136254946, -81.41506101328378],
+[41.41411151276656, -81.41507384408412],
+[41.41406119560867, -81.41508639297632],
+[41.41404101337097, -81.41509291711807],
+[41.413958616178235, -81.41508707657682],
+[41.41391587333449, -81.41508404685152],
+[41.41386747782179, -81.41510034243983],
+[41.41384025652758, -81.41512449177436],
+[41.41379842144053, -81.41514523649869],
+[41.41374352839914, -81.41514544576205],
+[41.4136874386378, -81.41516438925088],
+[41.413653537033184, -81.41518956039278],
+[41.4136048244523, -81.41519036530693],
+[41.413482253393134, -81.41525437359817],
+[41.4134929030009, -81.41529248123892],
+[41.4136099662824, -81.41528143193925],
+[41.41362528190985, -81.41530487830914],
+[41.41346253162482, -81.41532829013849],
+[41.41332374669867, -81.41536455096575],
+[41.413255070427276, -81.41535839347748],
+[41.413213603929634, -81.41538186630922],
+[41.41320010590974, -81.41536932816265],
+[41.41312487793484, -81.4153779395064],
+[41.41304694618831, -81.4153910001636],
+[41.41296488779869, -81.41542134819544],
+[41.412905052936445, -81.41544347714778],
+[41.41282793717343, -81.41545204311575],
+[41.41279425732518, -81.41550090923457],
+[41.41289243370741, -81.41552480964337],
+[41.412908914909465, -81.41556282065864],
+[41.41294633097588, -81.41560139741176],
+[41.41304005814807, -81.41558982270192],
+[41.41311039684695, -81.41560860532232],
+[41.41318266067365, -81.4156315027448],
+[41.41326537169042, -81.415670872802],
+[41.41325978260423, -81.41569466432695],
+[41.413249537075906, -81.41576866592253],
+[41.41325497878952, -81.41582508980524],
+[41.41325169149944, -81.41587710021227],
+[41.413228702603384, -81.41596863088823],
+[41.413222072056165, -81.41599335115289],
+[41.41322911000266, -81.41604883709041],
+[41.413202012885314, -81.41613405485188],
+[41.41313692085177, -81.41626821101862],
+[41.41309740988773, -81.41632902287995],
+[41.41315494824326, -81.41639146235258],
+[41.41320341959812, -81.41645670749529],
+[41.413275061166175, -81.4165047466987],
+[41.41331886651903, -81.41651131584516],
+[41.4133937232731, -81.41657297482415],
+[41.41346116904132, -81.4166126119593],
+[41.41350972775754, -81.4166321319067],
+[41.41353614178911, -81.41663169602893],
+[41.41364102838982, -81.41660261972703],
+[41.41366668403769, -81.41649190223454],
+[41.41370317512251, -81.41634545696273],
+[41.413739666021876, -81.41619901152814],
+[41.41374781322766, -81.41609222967374],
+[41.41375616926772, -81.41598270935187],
+[41.41380009263708, -81.41587351340101],
+[41.41383289792565, -81.41584107900735],
+[41.41390739390801, -81.41575415541197],
+[41.41392815163053, -81.41568088991916],
+[41.413948909049154, -81.41560762528867],
+[41.41393523723818, -81.4154665654466],
+[41.41400439617293, -81.41543264222535],
+[41.41411368428519, -81.41537903504242],
+[41.41414100630886, -81.4153656332188],
+[41.41422023978703, -81.41536341266091],
+[41.41435195486746, -81.41535984243],
+[41.41451651648838, -81.41534666790587],
+[41.414698500239076, -81.41530718540895],
+[41.414833471718275, -81.41526668557827],
+[41.415010443827036, -81.41524150241607],
+[41.4150376943718, -81.41522046903975],
+[41.4151362382418, -81.41517362688334],
+[41.415313960315736, -81.41506367698558],
+[41.41543569375165, -81.41500180703241],
+[41.41554496024248, -81.41494591539312],
+[41.415591881458965, -81.41490047424912],
+[41.41572079685523, -81.41483614785417],
+[41.415775395041535, -81.41480446330952],
+[41.41590852130966, -81.4147867663913],
+[41.41595883411164, -81.41479203528736],
+[41.41603302734335, -81.41480111613781],
+[41.41607830859047, -81.41480036762547],
+[41.41610812711058, -81.41481537107751],
+[41.41617797793367, -81.41481877419457],
+[41.4162331479934, -81.41486642769611],
+[41.416343102679306, -81.41497556780247],
+[41.41640223229294, -81.41500649494098],
+[41.41647133853229, -81.4149852985783],
+[41.416498131016006, -81.4149702696693],
+[41.4165353395197, -81.41504166886028]
+];
+
+// Define polyline options
+// http://leafletjs.com/reference.html#polyline
+var polyline_options = {
+    color: '#B66B27',
+	opacity: 0.9,
+	fillColor: '#D5802B',
+	fillOpacity: 0.6
+};
+
+// Defining a polygon here instead of a polyline will connect the
+// endpoints and fill the path.
+// http://leafletjs.com/reference.html#polygon
+var polyline = L.polyline(line_points, polyline_options).addTo(map);
+
+
+</script>
 
 </body>
 </html>
